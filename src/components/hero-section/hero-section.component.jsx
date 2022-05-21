@@ -1,12 +1,13 @@
 import React from 'react';
 import infinity from '../../assets/icons/infinity.svg';
 import infinitySmall from '../../assets/icons/infinity_small.svg';
+import curve from '../../assets/icons/curve.svg';
 import {
     HeroMotoContainer,
     HeroNameContainer,
     HeroSectionContainer,
     BigInfinityContainer,
-    NameAndMottoContainer, SmallInfinityContainer
+    NameAndMottoContainer, SmallInfinityContainer, HeroSectionCurve
 } from "./hero-section.styles";
 
 const HeroSection = () => (
@@ -25,6 +26,9 @@ const HeroSection = () => (
                 <img id="infinitySmall" src={infinitySmall} alt={'infinity small'}/>
             </SmallInfinityContainer>
         </NameAndMottoContainer>
+        <HeroSectionCurve>
+            <img src={curve} alt="curve image"/>
+        </HeroSectionCurve>
     </HeroSectionContainer>
 );
 

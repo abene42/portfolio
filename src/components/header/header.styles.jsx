@@ -14,6 +14,7 @@ export const HeaderLinksContainer = styled.div`
   border-radius: 0 20px 0 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   
   @media screen and (max-width: 990px) {
     width: 100vw;
@@ -52,6 +53,7 @@ export const LogoContainer = styled.div`
   display: flex;
   align-items: end;
   justify-content: end;
+  z-index: 1;
   
   @media screen and (max-width: 990px) {
     width: 60px;

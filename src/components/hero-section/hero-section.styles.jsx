@@ -4,7 +4,7 @@ export const HeroSectionContainer = styled.div`
   width: 100vw;
   height: 100vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   position:relative;
 `;
 
@@ -113,5 +113,14 @@ export const SmallInfinityContainer = styled.div`
     img{
       display: block;
     }
+  }
+`;
+
+export const HeroSectionCurve = styled.div`
+  display: none;
+  
+  @media screen and (max-width: 990px) {
+    display: block;
+    margin-top: -1px;
   }
 `;
