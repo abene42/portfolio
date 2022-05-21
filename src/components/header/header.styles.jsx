@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components';
+import styled, {css, keyframes} from 'styled-components';
 
 export const HeaderContainer = styled.div`
   width: 100vw;
@@ -7,7 +7,7 @@ export const HeaderContainer = styled.div`
   position: relative;
 `;
 
-export const HeaderLinksContainer= styled.div`
+export const HeaderLinksContainer = styled.div`
   width: 70%;
   height: 100%;
   background-color: #69bdff;
@@ -104,10 +104,36 @@ export const HeaderChevronContainer = styled.div`
   display: none;
   position: absolute;
   right: 18px;
-  top: 45px;
+  top: 35px;
   
   @media screen and (max-width: 990px) {
     display: block;
+  }
+`;
+
+const slideInFromRight = keyframes`
+  0% {
+    -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+`;
+
+const slideOutToRight = keyframes`
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
+    opacity: 0;
   }
 `;
 
@@ -117,37 +143,19 @@ export const HiddenMenuShadow = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: rgba(0,0,0,0.53);
-  z-index: 3;
-  
-  .slide-left {
-      -webkit-animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-      animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  }
-  
-  @-webkit-keyframes slide-left {
-      0% {
-          -webkit-transform: translateX(0);
-          transform: translateX(0);
-      }
-      100% {
-          -webkit-transform: translateX(-100px);
-          transform: translateX(-100px);
-      }
-  }
-  @keyframes slide-left {
-      0% {
-          -webkit-transform: translateX(0);
-          transform: translateX(0);
-      }
-      100% {
-          -webkit-transform: translateX(-100px);
-          transform: translateX(-100px);
-      }
-  }
+  z-index: 2;
 `;
 
 export const HiddenMenuContainer = styled.div`
-  display: flex;
+  display: none;
+  ${(props) => {
+    if (props.isOpen !== null) {
+        return props.isOpen === false
+            ? css`display: flex;animation: 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both ${slideOutToRight}`
+            : css`display: flex;animation: 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both ${slideInFromRight}`
+    }
+    return "";
+  }};
   flex-direction: column;
   padding: 45px 0 0 0;
   width: 80vw;
@@ -155,7 +163,7 @@ export const HiddenMenuContainer = styled.div`
   background-color: white;
   position: absolute;
   right: 0;
-  z-index: 2;
+  z-index: 3;
 `;
 
 export const HiddenMenuCloseButtonContainer = styled.div`
@@ -178,10 +186,9 @@ export const HiddenMenuNavButton = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
-  
 `;
 
-export const HiddenMenuPlatformsContainer = styled.div`
+export const HiddenMenuSocialPlatformsContainer = styled.div`
   width: 100%;
   height: auto;
   display: flex;
@@ -193,33 +200,5 @@ export const HiddenMenuPlatformsContainer = styled.div`
     height: 25px;
     width: 25px;
     margin: 0 5px;
-  }
-`;
-
-const slideLeft = css`
-  .slide-left {
-      -webkit-animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-      animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  }
-  
-  @-webkit-keyframes slide-left {
-      0% {
-          -webkit-transform: translateX(0);
-          transform: translateX(0);
-      }
-      100% {
-          -webkit-transform: translateX(-100px);
-          transform: translateX(-100px);
-      }
-  }
-  @keyframes slide-left {
-      0% {
-          -webkit-transform: translateX(0);
-          transform: translateX(0);
-      }
-      100% {
-          -webkit-transform: translateX(-100px);
-          transform: translateX(-100px);
-      }
   }
 `;

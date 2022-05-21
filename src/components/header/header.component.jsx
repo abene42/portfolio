@@ -9,7 +9,7 @@ import {
     HiddenMenuCloseButtonContainer,
     HiddenMenuContainer,
     HiddenMenuNavButton,
-    HiddenMenuPlatformsContainer,
+    HiddenMenuSocialPlatformsContainer,
     HiddenMenuShadow,
     Logo,
     LogoContainer
@@ -21,7 +21,7 @@ import {RiCloseLine} from "react-icons/ri";
 import {FaBars} from "react-icons/fa";
 
 const Header = () => {
-    let [showHiddenMenu, setShowHiddenMenu] = useState(false);
+    let [showHiddenMenu, setShowHiddenMenu] = useState(null);
 
     return (
         <HeaderContainer>
@@ -36,31 +36,27 @@ const Header = () => {
                 </HeaderLinks>
             </HeaderLinksContainer>
             <HeaderSocialMediaContainer>
-                <div><img src={linkedIn} alt={'linkedIn'}/>
-                    <img src={github} alt={'github'}/></div>
+                <div>
+                    <img src={linkedIn} alt={'linkedIn'}/>
+                    <img src={github} alt={'github'}/>
+                </div>
             </HeaderSocialMediaContainer>
             <HeaderChevronContainer>
                 <FaBars color='#FFFFFF' size={30} onClick={() => setShowHiddenMenu(true)}/>
             </HeaderChevronContainer>
-            {
-                showHiddenMenu && (
-                    <HiddenMenuShadow>
-                        <HiddenMenuContainer className="slide-left">
-                            <HiddenMenuCloseButtonContainer>
-                                <RiCloseLine color='#69BDFF' size={30} onClick={() => setShowHiddenMenu(false)}/>
-                            </HiddenMenuCloseButtonContainer>
-                            <HiddenMenuNavButton>Home</HiddenMenuNavButton>
-                            <HiddenMenuNavButton>My Skills</HiddenMenuNavButton>
-                            <HiddenMenuNavButton>My Works</HiddenMenuNavButton>
-                            <HiddenMenuNavButton>Contact Me</HiddenMenuNavButton>
-                            <HiddenMenuPlatformsContainer>
-                                <img src={linkedIn} alt={'linkedIn icon'}/>
-                                <img src={github} alt={'github icon'}/>
-                            </HiddenMenuPlatformsContainer>
-                        </HiddenMenuContainer>
-                    </HiddenMenuShadow>
-                )
-            }
+            <HiddenMenuContainer className="slide-left" isOpen={showHiddenMenu}>
+                <HiddenMenuCloseButtonContainer>
+                    <RiCloseLine color='#69BDFF' size={30} onClick={() => setShowHiddenMenu(false)}/>
+                </HiddenMenuCloseButtonContainer>
+                <HiddenMenuNavButton>Home</HiddenMenuNavButton>
+                <HiddenMenuNavButton>My Skills</HiddenMenuNavButton>
+                <HiddenMenuNavButton>My Works</HiddenMenuNavButton>
+                <HiddenMenuNavButton>Contact Me</HiddenMenuNavButton>
+                <HiddenMenuSocialPlatformsContainer>
+                    <img src={linkedIn} alt={'linkedIn icon'}/>
+                    <img src={github} alt={'github icon'}/>
+                </HiddenMenuSocialPlatformsContainer>
+            </HiddenMenuContainer>
         </HeaderContainer>
     )
 }
