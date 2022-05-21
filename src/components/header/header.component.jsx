@@ -24,15 +24,15 @@ const Header = () => {
     let [showHiddenMenu, setShowHiddenMenu] = useState(null);
 
     return (
-        <HeaderContainer>
+        <HeaderContainer id="home">
             <HeaderLinksContainer>
-                <LogoContainer>
+                <LogoContainer href="#home">
                     <Logo src={logo}/>
                 </LogoContainer>
                 <HeaderLinks>
-                    <HeaderLink><p>My Skills</p></HeaderLink>
-                    <HeaderLink><p>My Work</p></HeaderLink>
-                    <HeaderLink><p>Contact Me</p></HeaderLink>
+                    <HeaderLink><a href="#my-skills">My Skills</a></HeaderLink>
+                    <HeaderLink><a href="#">My Work</a></HeaderLink>
+                    <HeaderLink><a href="#">Contact Me</a></HeaderLink>
                 </HeaderLinks>
             </HeaderLinksContainer>
             <HeaderSocialMediaContainer>

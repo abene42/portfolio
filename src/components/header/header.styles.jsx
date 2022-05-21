@@ -45,7 +45,7 @@ export const HeaderSocialMediaContainer = styled.div`
   }
 `;
 
-export const LogoContainer = styled.div`
+export const LogoContainer = styled.a`
   width: 114px;
   height: 100%;
   margin-left: 100px;
@@ -54,6 +54,7 @@ export const LogoContainer = styled.div`
   align-items: end;
   justify-content: end;
   z-index: 1;
+  text-decoration: none;
   
   @media screen and (max-width: 990px) {
     width: 60px;
@@ -91,14 +92,20 @@ export const HeaderLink = styled.div`
   align-items: center;
   cursor:pointer;
   
-  p{
+  a{
     font-family: var(--font-family);
     font-size: 20px;
+    text-decoration: none;
+    color: white;
   }
   
   &:hover{
     background-color: #E0F2FF;
     color: black;
+    
+    a{
+      color: black;
+    }
   }
 `;
 

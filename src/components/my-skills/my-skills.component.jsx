@@ -1,28 +1,41 @@
 import React from 'react';
-import UI_UX from '../../assets/icons/ui_ux.png';
-import nextArrow from '../../assets/icons/next_arrow.svg'
+import UI_UX from '../../assets/icons/uI_and_ux.svg';
+import pageIndicatorBlue from '../../assets/icons/page_indicator_blue.svg';
+import pageIndicatorGrey from '../../assets/icons/page_indicator_grey.svg';
 import {
     CurvedEdge,
     MySkillsCard,
     MySkillsContainer,
     MySkillsDescription,
-    MySkillsText,
-    SkillType
+    MySkillsTitle, PageSelector,
+    SkillDescription,
+    SkillTitleContainer,
+    SkillType,
+    SkillTypeName
 } from "./my-skills.styles";
 
-const MySkills = ({skillTypeLogo,skillLogo,skillLogoName}) => (
-    <MySkillsContainer>
+const MySkills = ({skillTypeLogo, skillLogo, skillLogoName}) => (
+    <MySkillsContainer id="my-skills">
         <CurvedEdge/>
         <MySkillsCard>
-            <MySkillsText>
+            <MySkillsTitle>
                 <p>My Skills</p>
-            </MySkillsText>
+            </MySkillsTitle>
             <MySkillsDescription>
                 <SkillType>
                     <img src={UI_UX} alt={'skill type logo'}/>
+                    <SkillTypeName>
+                        <p>UI & UX DESIGN</p>
+                    </SkillTypeName>
                 </SkillType>
-            {/*    <SkillTitle><p>{skillTitle}</p></SkillTitle>*/}
-            {/*    <SkillDescription><p>{skillDescription}</p></SkillDescription>*/}
+                <SkillTitleContainer>
+                    <p>Minimal web and mobile design</p>
+                </SkillTitleContainer>
+                <SkillDescription>
+                    <p>
+                        I make designs that are simple and minimalistic. I choose the right color combination and I like putting items off the grid.
+                    </p>
+                </SkillDescription>
             </MySkillsDescription>
             {/*<MySkillLogoContainer>*/}
             {/*    <MySkillLogo>*/}
@@ -34,6 +47,11 @@ const MySkills = ({skillTypeLogo,skillLogo,skillLogoName}) => (
             {/*    <img src={nextArrow} alt={'next arrow'}/>*/}
             {/*</NextSkillArrow>*/}
         </MySkillsCard>
+        <PageSelector>
+            <img src={pageIndicatorBlue} alt="page indicator"/>
+            <img src={pageIndicatorGrey} alt="page indicator"/>
+            <img src={pageIndicatorGrey} alt="page indicator"/>
+        </PageSelector>
     </MySkillsContainer>
 )
 
