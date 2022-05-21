@@ -7,6 +7,7 @@ export const MySkillsContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   text-decoration: none;
 `;
 
@@ -30,6 +31,7 @@ export const MySkillsCard = styled.div`
   border-radius: 200px;
   z-index: 2;
   display: flex;
+  flex-direction: row;
   align-items: center;
   
   @media screen and (max-width: 990px) {
@@ -40,7 +42,7 @@ export const MySkillsCard = styled.div`
 
 export const MySkillsTitle = styled.div`
   height: 400px;
-  width: 140px;
+  flex: 1;
   margin-left: 30px;
   transform: rotate(-180deg);
   
@@ -52,6 +54,7 @@ export const MySkillsTitle = styled.div`
 `;
 
 export const MySkillsDescription = styled.div`
+  flex: 8;
   width: 654px;
   height: 430px;
 `;
@@ -119,5 +122,44 @@ export const PageSelector = styled.div`
   
   img{
     margin: 0 5px;
+  }
+`;
+
+export const MySkillLogoContainer = styled.div`
+  flex:8;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //background-color: darkred;
+`;
+
+export const MySkillLogo = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  p{
+    font-size: 50px;
+    text-align: center;
+    font-weight: bold;
+  }
+`;
+
+export const NextSkillArrow = styled.a`
+  margin-right: -100px;
+  width: 250px;
+  text-decoration: none;
+  cursor:pointer;
+  
+  img{
+    width: 210px;
+    height: 75px;
+    
+    &:hover{
+      width: 220px;
+      height: 100px;
+      transform: translateX(20px);
+    }
   }
 `;
