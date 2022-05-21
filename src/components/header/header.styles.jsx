@@ -148,14 +148,16 @@ export const HiddenMenuShadow = styled.div`
 
 export const HiddenMenuContainer = styled.div`
   display: none;
-  ${(props) => {
+  
+  @media screen and (max-width: 990px) {
+    ${(props) => {
     if (props.isOpen !== null) {
         return props.isOpen === false
             ? css`display: flex;animation: 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both ${slideOutToRight}`
             : css`display: flex;animation: 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both ${slideInFromRight}`
     }
     return "";
-  }};
+    }};
   flex-direction: column;
   padding: 45px 0 0 0;
   width: 80vw;
@@ -164,6 +166,7 @@ export const HiddenMenuContainer = styled.div`
   position: absolute;
   right: 0;
   z-index: 3;
+  }
 `;
 
 export const HiddenMenuCloseButtonContainer = styled.div`
